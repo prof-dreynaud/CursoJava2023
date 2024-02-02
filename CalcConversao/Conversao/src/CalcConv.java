@@ -51,5 +51,31 @@ public class CalcConv extends JFrame {
 
     }
     
-}
+    private void converter () {
+       
 
+        try {
+            double valor = Double.parseDouble(valorTextField.getText());
+            String unidadeOrigem = (String) unidadeOrigemComboBox.getSelectedItem();
+            String unidadeDestino = (String) unidadeDestinoComboBox.getSelectedItem();
+            double resultado;
+
+            if (unidadeOrigem.equals("metros") && unidadeDestino.equals("km")) {
+                resultado = valor / 1000;
+            } else if (unidadeOrigem.equals("km") && unidadeDestino.equals("metros")) {
+                resultado = valor * 1000;
+            } else {
+                resultado = valor;
+            }
+
+            resultadoLabel.setText("Resultado: " + resultado + " " + unidadeDestino);
+            
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this,"Por favor, insira um valor número!", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+      
+    }
+
+    public static void main(String[] args){
+        SwingUtilities.invokeLater(() -> new CalcConv());}
+}
