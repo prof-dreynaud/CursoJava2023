@@ -77,5 +77,6 @@ public class CalcConv extends JFrame {
     }
 
     public static void main(String[] args){
-        SwingUtilities.invokeLater(() -> new CalcConv());}
+        SwingUtilities.invokeLater(() -> new CalcConv());
+    }
 }
